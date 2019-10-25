@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adoção</title>
+</head>
+<body>
+    <h1>Adoções</h1>
+    <a href="{%url 'listar_animais'%}"><input type="button" value="home" /></a>
+    <a href="{%url 'cadastrar_adocao'%}"><input type="button" value="Cadastrar Adoção" /></a>
+    <hr>
+    {% for adocao in adocoes%}
+    <div>
+
+        <label>Responsavel: </label>
+        {{adocao.nome_do_responsavel}}
+    </div>
+    <div>
+        <label>Animal: </label>
+        {{adocao.animal.nome}}
+        <br>
+        <label>Especie: </label>
+        {{adocao.animal.especie}}
+
+    </div>
+    <br>
+    <a href="{%url 'editar_adocao' adocao.id%}"><input type="button" value="Editar" /></a>
+    <a href="{%url 'excluir_adocao' adocao.id%}"><input type="button" value="excluir" /></a>
+    <hr>
+
+    {% endfor %}
+
+
+</body>
+</html>
