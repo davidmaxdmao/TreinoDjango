@@ -5,22 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-    <form method="post">
+
+    <form method="post" action="{% url 'cadastrar_adocao' %}">
         {% csrf_token %}
+
         <div>
             <label>Nome do responsavel: </label>
-            {{adocao_form.nome_do_responsavel}}
+            <input type="text" name="resp_nome" />
         </div>
         <div>
-            <label>Nome do animal:</label>
-            {{adocao_form.animal}}
-            <br>
-
+            <label>Nome do animal: </label>
+            <input type="text" name="animal_nome" />
         </div>
-
         <div>
-            <input type="submit" value="salvar" />
+            <label>Especie: </label>
+            <input type="text" name="especie" />
         </div>
+
+        <input type="submit" value="salvar" />
+
 
 
     </form>

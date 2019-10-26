@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Adocao
 from .forms import AdocaoForm
+from animais.models import Animal
 from animais.forms import AnimalForm
 
 # Create your views here.
@@ -11,16 +12,17 @@ def adocao(request):
 
 def cadastrar_adocao(request):
     if request.method == 'POST':
-        adocao_form = AdocaoForm(request.POST)
+        resp_nome = request.POST.get("resp_nome")
+        animal_nome = request.POST.get("animal_nome")
+        especie = request.POST.get("especie")
 
-        if adocao_form.is_valid():
-
-            adocao_form.save()
-            return redirect('adocao')
+        animal = Animal(nome=animal_nome,especie=especie)
+        animal.save()
+        adocao = Adocao(nome_do_responsavel=resp_nome, animal=animal)
+        adocao.save()
+        return redirect('adocao')
     else:
-        adocao_form = AdocaoForm()
-
-        return render(request, 'cadastrar_adocao.html', {'adocao_form':adocao_form})
+        return render(request, 'cadastrar_adocao.html')
 
 def editar_adocao(request, id):
     adocao = Adocao.objects.get(id=id)
