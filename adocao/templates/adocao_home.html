@@ -9,7 +9,7 @@
     <a href="{%url 'listar_animais'%}"><input type="button" value="home" /></a>
     <a href="{%url 'cadastrar_adocao'%}"><input type="button" value="Cadastrar Adoção" /></a>
     <hr>
-    {% for adocao in adocoes%}
+    {% for adocao in object_list%}
     <div>
 
         <label>Responsavel: </label>

@@ -6,4 +6,4 @@ class Animal(models.Model):
     especie = models.CharField(max_length=100, null=False, blank=False)
 
     def __str__(self):
-        return f'nome: {self.nome}'
+        return f'nome: {self.nome}, especie: {self.especie}'

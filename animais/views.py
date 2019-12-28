@@ -29,5 +29,5 @@ class EditarAnimaisView(UpdateView):
 
 class RemoverAnimalView(DeleteView):
     model = Animal
-    template_name = 'confirmar_exclusao.html'
+    template_name = 'confirmar_exclusao_adocao.html'
     success_url = reverse_lazy('listar_animais')

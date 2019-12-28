@@ -5,9 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-opaa
+<h1>Tem certeza que deseja excluir esta adoção: </h1>
+<h4>Responsavel: {{object.nome_do_responsavel}}</h4>
+<h4>Animal ({{ object.animal }})</h4>
+
+
     <form method="post">
         {%csrf_token%}
+
+
         <input type="submit" value="excluir"/>
     </form>
 </body>
