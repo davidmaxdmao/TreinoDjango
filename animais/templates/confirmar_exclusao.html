@@ -7,7 +7,7 @@
 <body>
 
     <h1>tem certeza que deseja remover a seguinte adocao: </h1>
-    <h3>{{adocao.nome}}</h3>
+    <h3>{{object.nome}}</h3>
     <form method="post">
         {% csrf_token %}
         <button type="submit">Remover</button>

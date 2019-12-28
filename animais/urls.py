@@ -3,9 +3,9 @@ from django.urls import path, include
 from .views import *
 
 urlpatterns = [
-    path('', listar_animais, name='listar_animais'),
-    path('cadastrar_animal/', cadastrar_animais, name='cadastrar_animal'),
-    path('editar_animal/<int:id>', editar_animais, name='editar_animal'),
-    path('remover_animal/<int:id>', remover_animal, name='remover_animal'),
+    path('', ListarAnimaisView.as_view(), name='listar_animais'),
+    path('cadastrar_animal/', CadastrarAnimaisView.as_view(), name='cadastrar_animal'),
+    path('editar_animal/<int:pk>', EditarAnimaisView.as_view(), name='editar_animal'),
+    path('remover_animal/<int:pk>', RemoverAnimalView.as_view(), name='remover_animal'),
 
 ]

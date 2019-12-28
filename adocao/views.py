@@ -15,7 +15,6 @@ def cadastrar_adocao(request):
         resp_nome = request.POST.get("resp_nome")
         animal_nome = request.POST.get("animal_nome")
         especie = request.POST.get("especie")
-
         animal = Animal(nome=animal_nome,especie=especie)
         animal.save()
         adocao = Adocao(nome_do_responsavel=resp_nome, animal=animal)
