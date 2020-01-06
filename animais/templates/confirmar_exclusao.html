@@ -6,8 +6,8 @@
 </head>
 <body>
 
-    <h1>tem certeza que deseja remover a seguinte adocao: </h1>
-    <h3>{{object.nome}}</h3>
+    <h1>tem certeza que deseja remover o seguinte animal: </h1>
+    <h3>{{ object }}</h3>
     <form method="post">
         {% csrf_token %}
         <button type="submit">Remover</button>

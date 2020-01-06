@@ -6,6 +6,11 @@
 </head>
 <body>
     <a href="{% url 'adocao' %}"><input type="button" value="adoção"/></a>
+    <form method="get" action="{% url 'busca_animal' %}">
+        {% csrf_token %}
+        <input type="text" placeholder="pesquisar animal" name="nome"/>
+        <input type="submit" value="pesquisar"/>
+    </form>
     <h1>Animais</h1>
     <a href="{% url 'cadastrar_animal' %}"><input type="button" value="cadastrar"/></a>
     <br>
@@ -18,6 +23,7 @@
     <br>
     <a href="{% url 'editar_animal' animal.id  %}"><input type="button" value="editar" /></a>
     <a href="{% url 'remover_animal' animal.id  %}"><input type="button" value="remover" /></a>
+    <a href="{% url 'detalhe_animal' animal.id  %}"><input type="button" value="detalhe" /></a>
     <hr>
     {%endfor%}
 
