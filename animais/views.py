@@ -1,3 +1,4 @@
+
 from django.urls import reverse_lazy
 from django.views.generic import (
     ListView, CreateView, UpdateView, DeleteView, DetailView)
@@ -47,9 +48,19 @@ class BuscaAnimalView(ListView):
 
 
     def get_queryset(self):
-        query = self.request.GET.get('nome')
+        nome = self.request.GET.get('nome')
+        try:
+            pesquisa = Animal.objects.get(nome=nome)
+            return pesquisa
 
-        return Animal.objects.get(nome=query)
+        except Animal.DoesNotExist:
+            pass
+
+
+
+
+
+
 
 
 

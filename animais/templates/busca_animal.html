@@ -5,10 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-
-    <h3>nome do animal: {{object_list.nome}}</h3>
-
-    <h3>especie: {{object_list.especie}}</h3>
-
+    {% if object_list %}
+        <h3>nome do animal: {{object_list.nome}}</h3>
+        <h3>especie: {{object_list.especie}}</h3>
+    {% endif %}
+    {% if not object_list %}
+        <h1>Animal inexistente</h1>
+    {% endif %}
 </body>
 </html>
