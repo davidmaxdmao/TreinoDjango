@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>index</title>
-</head>
-<body>
-    <a href="{% url 'adocao' %}"><input type="button" value="adoção"/></a>
-    <form method="get" action="{% url 'busca_animal' %}">
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mb-4">
+    <form method="get" action="{% url 'busca_animal' %}" >
         {% csrf_token %}
-        <input type="text" placeholder="pesquisar animal" name="nome"/>
-        <input type="submit" value="pesquisar"/>
+        <div class="form-control col-sm-4">
+            <input type="text" placeholder="pesquisar animal" name="nome" class="form-control mb-2"/>
+            <input type="submit" value="pesquisar" class="fomr-control"/>
+        </div>
     </form>
+</div>
     <h1>Animais</h1>
-    <a href="{% url 'cadastrar_animal' %}"><input type="button" value="cadastrar"/></a>
     <br>
     <hr>
     <br>
@@ -27,5 +25,4 @@
     <hr>
     {%endfor%}
 
-</body>
-</html>
+{% endblock %}
